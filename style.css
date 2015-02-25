@@ -15,3 +15,29 @@ body {
 .sprite {
     float: right;
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+a:link, a:visited {
+    display:block;
+    width:100px;
+    padding:4px;
+    color:black;
+    background-color:white;
+    text-align: left;
+    text-decoration:none;
+}
+
+a:hover, a:active {
+    background-color: #CCF;
+    color:black;
+    display:block;
+    padding:4px;
+    text-align: left;
+    text-decoration: none;
+}
