@@ -22,8 +22,7 @@ ul {
     overflow: hidden;
 }
 
-
-a:link, a:visited {
+ul a:link, ul a:visited {
     display:block;
     width:100px;
     padding:4px;
@@ -33,7 +32,7 @@ a:link, a:visited {
     text-decoration:none;
 }
 
-a:hover, a:active {
+ul a:hover, ul a:active {
     background-color: #CCF;
     color:black;
     display:block;
