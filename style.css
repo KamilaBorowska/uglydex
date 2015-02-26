@@ -1,42 +1,70 @@
 html {
-    background: #CCF;
+    background: #34495e;
     color: #222;
     font-family: sans-serif;
 }
 body {
     max-width: 700px;
     background: white;
-    margin: 0 auto;
+    margin:0 auto;
     padding: 1em;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
-    box-shadow: 0 0 10px gray;
 }
 .sprite {
     float: right;
 }
 .nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
 }
 
-.nav a:link, .nav a:visited {
-    display:block;
-    width:100px;
-    padding:4px;
-    color:black;
-    background-color:white;
-    text-align: left;
-    text-decoration:none;
+.nav li {
+    display: inline-block;
+    width: 160px;
+    position: relative;
 }
 
-.nav a:hover, .nav a:active {
-    background-color: #CCF;
-    color:black;
-    display:block;
-    padding:4px;
-    text-align: left;
+.nav li a {
+    background: #34495e;
+    color: white;
+    display: block;
+    padding: 7px 8px;
     text-decoration: none;
+    border-top: 1px solid white;
+}
+
+.nav li a:hover {
+    color: #f1c40f;
+}
+.nav ul {
+    transition: transform 0.25s ease;
+    transform: scaleY(0);
+    transform-origin: top;
+    overflow: hidden;
+    position: absolute;
+    margin-left: 0px;
+    list-style: none;
+    padding: 0px;
+}
+
+.nav ul li {
+    width: 160px;
+}
+
+.nav ul a {
+    display: block;
+    height: 15px;
+    padding: 7px 8px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #34495e;
+}
+
+.nav ul li a:hover {
+    color: #f1c40f;
+}
+.nav li:hover ul {
+    transform: scaleY(1);
 }

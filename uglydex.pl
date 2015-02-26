@@ -109,9 +109,12 @@ sub parse_mons {
 <title>$pokemon in $tier</title>
 <link rel=stylesheet href="/uglydex/style.css">
 <img src="http://www.smogon.com/dex/media/sprites/xy/$lc_pokemon.gif" class="sprite">
-<h1>Tiers</h1>
+<ul class=nav>
+<li><a href="/uglydex/">Home</a>
+<li><a>Tiers</a>
 <ul>
 $tiers
+</ul>
 </ul>
 $parsed_doc
 <hr><p><small>Entries are created by <a href="http://www.smogon.com/credits">Smogon
