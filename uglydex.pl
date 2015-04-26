@@ -1,4 +1,5 @@
-use strictures 1;
+use strict;
+use warnings;
 use autodie;
 use Text::Markdown 'markdown';
 use File::Path 'make_path';
@@ -151,9 +152,44 @@ HTML
     }
 }
 
+sub all_pokemon {
+    my %pokemons;
+    while (my $analysis = glob 'uglydex/*/*') {
+        my ($tier, $pokemon) = $analysis =~ m{uglydex/(.+)/(.+)};
+        push @{$pokemons{$pokemon}}, $tier;
+    }
+    return %pokemons;
+}
+
+sub parse_pokemon_list {
+    my %pokemons = all_pokemon;
+    my $mons = '';
+    for my $pokemon (sort keys %pokemons) {
+        my @tiers = @{$pokemons{$pokemon}};
+        $mons .= '<dt>' . ucfirst $pokemon;
+        for my $tier (@tiers) {
+            $mons .= qq[<dd><a href="/uglydex/$tier/$pokemon/">$tier</a>];
+        }
+    }
+    my $html = <<"HTML";
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>All Pokémon</title>
+<p>This is a list of all Pokémon with analyses.
+<link rel=stylesheet href="/uglydex/style.css">
+<dl>
+$mons
+</dl>
+HTML
+    make_path 'uglydex/all';
+    open my $descriptor, '>', 'uglydex/all/index.html';
+    print $descriptor $html;
+}
+
 sub main {
     parse_mons;
     parse_dirs;
+    parse_pokemon_list;
 }
 
 main;
